@@ -1,3 +1,5 @@
+const nimFasele = "‌";
+
 const doFile = async (fnum) => {
     const json = JSON.parse(await Deno.readTextFile(`vosk_output/${fnum}.json`));
     const text = await Deno.readTextFile(`texts/${fnum}.txt`);
@@ -41,6 +43,16 @@ const doFile = async (fnum) => {
                         }
                         i += x;
                         j += x;
+                        finded = true;
+                        break;
+                    }
+                    if (result[i + x - 1].word === list[j + x - 1] + nimFasele + list[j + x]) {
+                        for (let f = 0; f < x; f += 1) {
+                            result[i + f].corrected = list[j + f];
+                        }
+                        result[i + x - 1].corrected += nimFasele + list[j + x];
+                        i += x;
+                        j += x + 1;
                         finded = true;
                         break;
                     }
