@@ -1,3 +1,5 @@
+import { exists } from "https://deno.land/std/fs/mod.ts";
+
 const nimFasele = "‌";
 
 const lsp = (s1, s2) => {
@@ -34,10 +36,33 @@ const match = (s1, s2) => {
 };
 
 const doFile = async (fnum) => {
+    const textPath = `texts/${fnum}.txt`;
+    if (!await exists(textPath)) return;
+    const text = await Deno.readTextFile(textPath);
     const json = JSON.parse(await Deno.readTextFile(`vosk_output/${fnum}.json`));
-    const text = await Deno.readTextFile(`texts/${fnum}.txt`);
-    const list = text.replaceAll('،', '').replaceAll('.', '').split(/\s+/);
-    const { result } = json;
+    const list = text
+        .replaceAll('،', '')
+        .replaceAll('.', '')
+        .replaceAll('»', '')
+        .replaceAll('«', '')
+        .replaceAll('(', '')
+        .replaceAll(')', '')
+        .replaceAll('؛', '')
+        .replaceAll(':', '')
+        .replaceAll(nimFasele, ' ')
+        .split(/\s+/);
+    const { result: preResult } = json;
+    const result = [];
+    for (const x of preResult) {
+        const ss = x.word.split(nimFasele);
+        for (const s of ss) {
+            result.push({
+                start: x.start,
+                end: x.end,
+                word: s,
+            });
+        }
+    }
     {
         let i = 0;
         let j = 0;
@@ -63,11 +88,11 @@ const doFile = async (fnum) => {
                             finded = true;
                             break;
                         }
-                        if (match(result[i + x - 1].word, list[j + x - 1] + nimFasele + list[j + x])) {
+                        if (match(result[i + x - 1].word, list[j + x - 1] + list[j + x])) {
                             for (let f = 0; f < x; f += 1) {
                                 result[i + f].corrected = list[j + f];
                             }
-                            result[i + x - 1].corrected += nimFasele + list[j + x];
+                            result[i + x - 1].corrected += list[j + x];
                             i += x;
                             j += x + 1;
                             finded = true;
@@ -119,9 +144,18 @@ const doFile = async (fnum) => {
                 }
             }
             if (!finded) {
+                if (result.length - i < 3 && list.length - j < 4) {
+                    result[i].corrected = list.slice(j).join(' ');
+                    for (let f = i + 1; f < result.length; f += 1) {
+                        result[f].skip = true;
+                    }
+                    i = result.length;
+                    j = list.length;
+                    continue;
+                }
                 const s1 = result.slice(i, i + 5).map((x) => x.word).join(' ');
                 const s2 = list.slice(j, j + 5).join(' ');
-                throw new Error(`can't match ${i}: ${s1}, ${j}: ${s2}`);
+                throw new Error(`can't match\noriginal ${i}: ${s1}\ncorrected ${j}: ${s2}`);
             }
         }
     }
@@ -142,7 +176,7 @@ const doFile = async (fnum) => {
 
     const sentence = (st, tw, tc, en) => {
         timedFile += ` ${(id+"").padStart(3, '0')} | ${ffloat(st)} | ${ffloat(en)} | ${tc}\n`;
-        diffFile += `${st}\n${tw}\n${tc}\n${en}\n`;
+        diffFile += `${id} ${st}\n${tw}\n${tc}\n${en}\n`;
         id += 1;
     };
     
@@ -163,4 +197,7 @@ const doFile = async (fnum) => {
     await Deno.writeTextFile(`vosk_vs_correct/${fnum}.txt`, diffFile);
 };
 
-await doFile('02');
+for (let i = 1; i <= 39; i += 1) {
+    console.log(i);
+    await doFile(i.toString().padStart(2, '0'));
+}
