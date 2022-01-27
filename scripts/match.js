@@ -41,9 +41,7 @@ const addToWrongs = (correct, original) => {
     if (!wrongDict[correct]) {
         wrongDict[correct] = [];
     }
-    if (!wrongDict[correct].find((x) => x === original)) {
-        wrongDict[correct].push(original);
-    }
+    wrongDict[correct].push(original);
 };
 
 const doFile = async (fnum) => {
