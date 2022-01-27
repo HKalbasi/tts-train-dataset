@@ -35,6 +35,17 @@ const match = (s1, s2) => {
     return false;
 };
 
+const wrongDict = {};
+
+const addToWrongs = (correct, original) => {
+    if (!wrongDict[correct]) {
+        wrongDict[correct] = [];
+    }
+    if (!wrongDict[correct].find((x) => x === original)) {
+        wrongDict[correct].push(original);
+    }
+};
+
 const doFile = async (fnum) => {
     const textPath = `texts/${fnum}.txt`;
     if (!await exists(textPath)) return;
@@ -188,6 +199,15 @@ const doFile = async (fnum) => {
             s2 = "";
         }
         s += result[i].word + ' ';
+        if (!result[i].skip && result[i].word !== result[i].corrected) {
+            let w = result[i].word;
+            let j = i + 1;
+            while (result.length > j && result[j].skip) {
+                w += ' ' + result[j].word;
+                j += 1;
+            }
+            addToWrongs(result[i].corrected, w);
+        }
         if (!result[i].skip) {
             s2 += result[i].corrected + ' ';
         }
@@ -201,3 +221,10 @@ for (let i = 1; i <= 39; i += 1) {
     console.log(i);
     await doFile(i.toString().padStart(2, '0'));
 }
+
+let wrongText = "";
+for (const key of Object.keys(wrongDict)) {
+    wrongText += `${key.padEnd(20, ' ')}| ${wrongDict[key].join(' - ')}\n`;
+}
+
+await Deno.writeTextFile(`wrongs.csv`, wrongText);
