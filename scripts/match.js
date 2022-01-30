@@ -44,6 +44,10 @@ const addToWrongs = (correct, original) => {
     wrongDict[correct].push(original);
 };
 
+const bads = ['،', '.', '»', '«', '(', ')', '؛', ':'];
+
+const isSpacy = (c) => c === ' ' || c === '\n' || c === '\t' || c === '\r';
+
 const doFile = async (fnum) => {
     const textPath = `texts/${fnum}.txt`;
     if (!await exists(textPath)) return;
@@ -101,7 +105,7 @@ const doFile = async (fnum) => {
                             for (let f = 0; f < x; f += 1) {
                                 result[i + f].corrected = list[j + f];
                             }
-                            result[i + x - 1].corrected += list[j + x];
+                            result[i + x - 1].corrected += ' ' + list[j + x];
                             i += x;
                             j += x + 1;
                             finded = true;
@@ -124,7 +128,7 @@ const doFile = async (fnum) => {
                                 for (let f = 0; f < y; f += 1) {
                                     result[i + x - 1].corrected += ' ' + list[j + x + f];
                                 }
-                                result[i + x].corrected = list[j + x + y];    
+                                result[i + x].corrected = list[j + x + y];
                             } else {
                                 result[i + x].corrected = list[j + x];
                                 for (let f = 1; f <= y; f += 1) {
@@ -168,27 +172,57 @@ const doFile = async (fnum) => {
             }
         }
     }
-    
+
     let pv = 0;
-    
+
     let s = result[0].word + ' ';
     let s2 = result[0].corrected + ' ';
-    
+
     let id = 0;
-    
+
     const ffloat = (f) => {
         return Number(f).toFixed(2).padStart(7);
     };
-    
+
     let timedFile = "";
     let diffFile = "";
+    let tPointer = 0;
 
     const sentence = (st, tw, tc, en) => {
-        timedFile += ` ${(id+"").padStart(3, '0')} | ${ffloat(st)} | ${ffloat(en)} | ${tc}\n`;
-        diffFile += `${id} ${st}\n${tw}\n${tc}\n${en}\n`;
+        let ttc = "";
+        const insert = () => {
+            ttc += text[tPointer];
+            tPointer += 1;
+        };
+        for (const c of tc) {
+            while (bads.find((x) => x === text[tPointer])) {
+                insert();
+            }
+            if (c === ' ') {
+                if (text[tPointer] === nimFasele) {
+                    insert();
+                    continue;            
+                }
+                if (isSpacy(text[tPointer])) {
+                    ttc += ' ';
+                    while (isSpacy(text[tPointer]) || bads.find((x) => x === text[tPointer])) tPointer += 1;
+                    continue;
+                }
+            }
+            if (c === text[tPointer] || c === ' ' && text[tPointer] === nimFasele) {
+                insert();
+                continue;
+            }
+            if (text.length === tPointer) {
+                break;
+            }
+            throw new Error(`Mismatch character in post matching, ${c} vs ${text[tPointer]} in ${text.slice(tPointer - 5, tPointer + 5)}`);
+        }
+        timedFile += ` ${(id + "").padStart(3, '0')} | ${ffloat(st)} | ${ffloat(en)} | ${ttc}\n`;
+        diffFile += `${id} ${st}\n${tw}\n${ttc}\n${en}\n`;
         id += 1;
     };
-    
+
     for (let i = 1; i < result.length; i += 1) {
         if (result[i].start > result[i - 1].end + 0.2) {
             sentence(`${result[pv].start}`, s, s2, `${result[i - 1].end}`);
