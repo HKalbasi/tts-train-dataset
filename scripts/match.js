@@ -50,7 +50,10 @@ const isSpacy = (c) => c === ' ' || c === '\n' || c === '\t' || c === '\r';
 
 const doFile = async (fnum) => {
     const textPath = `texts/${fnum}.txt`;
-    if (!await exists(textPath)) return;
+    if (!await exists(textPath)) {
+        console.log(`${textPath} not found`);
+        return;
+    };
     const text = await Deno.readTextFile(textPath);
     const json = JSON.parse(await Deno.readTextFile(`vosk_output/${fnum}.json`));
     const list = text
