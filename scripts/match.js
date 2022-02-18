@@ -137,6 +137,10 @@ const doFile = async (fnum) => {
                                 for (let f = 1; f <= y; f += 1) {
                                     result[i + x].corrected += ' ' + list[j + x + f];
                                 }
+                                if (result[i + x].corrected.startsWith('ی ')) {
+                                    result[i + x].corrected = result[i + x].corrected.slice(2);
+                                    result[i + x - 1].corrected += ' ی';
+                                }
                             }
                             i += x + 1;
                             j += x + y + 1;
