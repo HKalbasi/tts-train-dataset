@@ -12,6 +12,7 @@ const nonVowel = {
   'ئ': 'ʔ',
   'آ': 'ʔɑ',
   'أ': 'ʔ',
+  'ؤ': 'ʔ',
   'ء': 'ʔ',
   'ا': 'n',
   'ب': 'b',
@@ -78,13 +79,18 @@ const textIgnored = {
   '-': true,
   '"': true,
   ',': true,
+  '!': true,
   '‌': true,
 };
 
 const isAyn = (c) => c === 'ع' || c === 'ئ' || c === 'ء' || c === 'أ';
 
 const diacWithIpa = async (text, ipa) => {
-  text = text.replaceAll('اً', 'ن').replaceAll('ّ', '');
+  text = text
+    .replaceAll('اً', 'ن').replaceAll('ّ', '')
+    .replaceAll('غم‌انگیز', 'غَمَنْگیزْ')
+    .replaceAll('هیجان‌انگیز', 'هَیَجانَنگیزْ')
+    .replaceAll('بهمون', 'بِهِمون').replaceAll('وگرنه', 'وگرنَ').replaceAll(' الهه', ' عه لاهه');
   ipa = ipa.replaceAll('\n', ' ') + ' ';
   text += ' ';
   let tp = 0;
@@ -149,19 +155,30 @@ const diacWithIpa = async (text, ipa) => {
       ip += 1;
       continue;
     }
-    if (text.slice(tp).startsWith('دد') && ipa.slice(ip).startsWith('ddad')) {
+    if (text.slice(tp).startsWith('قق') && ipa.slice(ip).startsWith('q1q1oq1')) {
       goText();
       result += 'ّ';
       goText();
-      ip += 4;
+      state = 'nonVowel';
+      ip += 7;
       continue;
     }
-    if (text.slice(tp).startsWith('چهار') && ipa.slice(ip).startsWith('tʃˈɑhɑr')) {
+    if (text[tp + 1] === tc && nonVowel[tc] === ic && ipa[ip + 1] === ic && (ipa[ip + 3] === ic || ipaIgnored[ipa[ip + 2]] && ipa[ip + 4] === ic)) {
       goText();
+      result += 'ّ';
+      goText();
+      state = 'nonVowel';
+      ip += 4 + (ipa[ip + 4] === ic);
+      continue;
+    }
+    if (text.slice(tp).startsWith('چهار') && (ipa.slice(ip).startsWith('tʃˈɑhɑr') || ipa.slice(ip).startsWith('tʃˌɑhɑr'))) {
+      goText();
+      result += "ا";
       goText();
       goText();
       goText();
       ip += 7;
+      state = 'nonVowel';
       continue;
     }
     if (text.slice(tp).startsWith('و') && ipa.slice(ip).startsWith('ovv')) {
@@ -211,7 +228,7 @@ const diacWithIpa = async (text, ipa) => {
       ip += 3;
       continue;
     }
-    if (text.slice(tp).startsWith('نه ') && ipa.slice(ip).startsWith('nˈa')) {
+    if (text.slice(tp).startsWith('نه') && textIgnored[text[tp + 2]] && ipa.slice(ip).startsWith('nˈa')) {
       goText();
       goText();
       ip += 3;
@@ -229,7 +246,7 @@ const diacWithIpa = async (text, ipa) => {
         while (textIgnored[text[tp2]]) {
           tp2 += 1;
         }
-        if (!(ipa.slice(ip).startsWith(nonVowel[text[tp2]]) || text[tp2 + 1] === tc && textIgnored[text[tp2]]) || text[tp2] === 'ص') {
+        if (!(ipa.slice(ip).startsWith(nonVowel[text[tp2]]) || text[tp2 + 1] === tc && textIgnored[text[tp2]]) || text[tp2] === 'ص' || text[tp2] === 'ا') {
           state = 'tashdid';
           result += 'ّ';
           ip += nonVowel[tc].length;
