@@ -1,7 +1,7 @@
  000 | دَرْخواسْتْ اِزْدِواجْ صَفْحِ چِهِلْ وَ پَنْجْ  | dˈarxɑst ezdˈevɑdʒ sˈafheː tʃˈehel vˈa pˈandʒ
  001 | دَرْ تَعْطیلاتْ کِریسْمَسْ  | dˈar taʔtˈilɑt kerˈismas
  002 | کِ اَوَّلینْ بارْ اَسْتْ با هَمْ میگُذَرانَنْدْ  | kˈeː avvˈalin bˈɑr ˈast bɑ hˈam miɡˌozarˈɑnand
- 003 | دوْبارِ بِ خانِ مادَرْ کُرْسِتَنْ  | dobˈɑreː beː xˈɑneː mˈɑdar korsˈetan
+ 003 | دوْبارِ بِ خانِ مادَرْ کِرِسْتِنْ  | dobˈɑreː beː xˈɑneː mˈɑdar kerˈesten
  004 | دَرْ اینْوِرْنِنْسْ می‌رَوَنْدْ  | dˈar iːnvˈernens mirˈavand
  005 | خانُمْ مَکْ لیلانْدْ  | xˈɑnom mˈak lilˈɑnd
  006 | مِهْرْ مادَری خوْدْ را بِ رَبیعْ نِشانْ می‌دَهَدْ  | mˈeːhr mɑdˈari xod rɑ beː rˈabiʔ nˈeʃɑn midˈahad
@@ -18,7 +18,7 @@
  017 | دَرْ ظاهِرْ اِتِّفاقی اَسْتْ  | dˈar zˈɑher ˌettefˈɑq1i ˈast
  018 | اَمّا رَبیعْ دُچارْ تَوَهُّمْ نیسْتْ  | ˈammˌɑ rˈabiʔ dˈotʃɑr tavˈahhom nˈist
  019 | با او مُصاحِبِ می‌شَوَدْ  | bɑ ˈuː mˌosɑhˈebeː miʃavˈad
- 020 | مادَرْ کُرْسِتَنْ می‌خواهَدْ  | mˈɑdar korsˈetan mixˈɑhad
+ 020 | مادَرْ کِرِسْتِنْ می‌خواهَدْ  | mˈɑdar kerˈesten mixˈɑhad
  021 | راجِعْ بِ خانِوادِ‌اَشْ بِدانَدْ  | rˈɑdʒeʔ beː xˌɑnevˈɑdeːaʃ bedˈɑnad
  022 | وَ رَوابِطْ قَبْلیَشْ  | vˈa ravˈɑbet q1ablˈijaʃ
  023 | وَ اینْکِ چِطوْرْ کارَشْ دَرْ لَنْدَنْ بِ پایانْ رِسیدِ  | vˈa ˈinkeː tʃˈetor kˈɑraʃ dˈar lˈandan beː pˈɑjɑn rˈesidˌeː
@@ -54,7 +54,7 @@
  053 | نِمی‌تَوانَدْ ما را نابودْ کُنَدْ  | nˌemitavˈɑnad mɑ rɑ nɑbˈuːd kˈonad
  054 | وَقْتی خانُمْ لیلانْدْ  | vˈaq1ti xˈɑnom lilˈɑnd
  055 | دَرْ آخَرینْ روزْ حُضورْ آنْها سَرْ میزْ ناهارْ بِ رَبیعْ می‌گویَدْ  | dˈar ɑxˈarin rˈuːz hˈozuːr ˌɑnhɑ sˈar mˈiz nɑhˈɑr beː rˈabiʔ miɡˈujad
- 056 | کِ چِقَدْرْ حِیْفْ کِ کُرْسِتَنْ  | kˈeː tʃˈeq1adr hˈejf kˈeː korsˈetan
+ 056 | کِ چِقَدْرْ حِیْفْ کِ کِرِسْتِنْ  | kˈeː tʃˈeq1adr hˈejf kˈeː kerˈesten
  057 | بَعْدْ اَزْ رَفْتَنْ پِدَرَشْ  | bˈaʔd az rˈaftan pedˈaraʃ
  058 | دیگَرْ حَتّی یِکْ نُتْ هَمْ نَخوانْدِ  | dˈiɡar hˌattˈɑ jˈek nˈot hˈam nˈaxˈɑndeː
  059 | چوْنْ او صِدایِ فوْقْ اُلعادِّ خوْشْ آتیِ داشْتِ  | tʃˈon ˈuː sˈedɑjˌeː fˈoːq1 olˈɑdde xˈoʃ ˈɑtijˌe dˈɑʃteː
@@ -64,21 +64,21 @@
  063 | فَقَطْ فَعالیَتْهایِ فوْقْ بَرْنامِ پیشینْ دُخْتَرَشْ را شَرْحْ نِمی‌دَهَدْ  | fˈaq1at fˌaːʔɑlˌiːjathˈɑje fˈoːq1 barnˈɑmeː pˈiʃin doxtˈaraʃ rɑ ʃˈarh nˌemidˈahad
  064 | بَلْکِ دَرْ چارْچوبْ قَواعِدْ  | bˈalkeː dˈar tʃˈɑrtʃuːb q1avˈɑʔed
  065 | اَزْ رَبیعْ دَرْخواسْتْ می‌کُنَدْ  | az rˈabiʔ dˈarxɑst mikˈonad
- 066 | زِنْدِگی کُرْسِتَنْ را نابودْ نَکُنَدْ  | zˈendeɡˌi korsˈetan rɑ nɑbˈuːd nakˈonad
- 067 | رَبیعْ وَ کُرْسِتَنْ  | rˈabiʔ vˈa korsˈetan
+ 066 | زِنْدِگی کِرِسْتِنْ را نابودْ نَکُنَدْ  | zˈendeɡˌi kerˈesten rɑ nɑbˈuːd nakˈonad
+ 067 | رَبیعْ وَ کِرِسْتِنْ  | rˈabiʔ vˈa kerˈesten
  068 | یِکْ شَبْ قَبْلْ اَزْ شَبْ سالْ نوْ  | jˈek ʃˈab q1ˈabl az ʃˈab sˈɑl nˈoː
  069 | بِ سَمْتْ اَدینْبَرو راهی می‌شَوَنْدْ  | beː sˈamt ˈaːdinbˌaruː rˈɑhi miʃˈavand
  070 | مَسیری چاهارْ ساعَتِ اَزْ اینْ سو  | masˈiri tʃˈɑhɑr sɑʔˈateː az iːn sˈuː
  071 | بِ آنْ سویْ هایْلْنَدَزْ  | beː ɑn sˈuːj hˈɑjlnadˌaz
  072 | سَوارْ بَرْ قَطاری با موْتوْرْ دیزِلْ قَدیمی  | savˈɑr bar q1atˈɑri bɑ mˈotor dˈizel q1adˈimi
- 073 | کُرْسِتَنْ کِ بارْها سَفَرْ دَرْ اینْ مَسیرْ را تَجْرُبِ کَرْدِ  | korsˈetan kˈeː bˈɑrhɑ sˈafar dˈar iːn mˈasir rɑ tadʒrˈobe kˈardeː
+ 073 | کِرِسْتِنْ کِ بارْها سَفَرْ دَرْ اینْ مَسیرْ را تَجْرُبِ کَرْدِ  | kerˈesten kˈeː bˈɑrhɑ sˈafar dˈar iːn mˈasir rɑ tadʒrˈobe kˈardeː
  074 | می‌دانِسْتِ کِ بایَدْ پَتو بیاوَرَدْ  | midɑnˈesteː kˈeː bˈɑjad pˈatuː bˌijɑvˈarad
  075 | وَ آنْها دَرْ واگُنْ خالی عَقَبْ  | vˈa ˌɑnhɑ dˈar vˈɑɡon xˈɑli ˈaːq1ab
  076 | آنْ را دورْ خوْدْ میپیچَنْدْ  | ɑn rɑ dˈuːr xod mipˈitʃand
  077 | اَزْ مَنْظَرْ مَزارِعْ دورْدَسْتْ  | az mˈanzar mazˈɑreʔ dˈuːrdast
  078 | قَطارْ بایَدْ شَبیهْ خَطی نوْرانی بِ نَظَرْ بِرِسَدْ  | q1atˈɑr bˈɑjad ʃˈabih xˈati norˈɑni beː nˈazar berˈesad
  079 | بِ اَنْدازِ یِ هِزارْ پایی کِ دَرْ صَفْحِ ای سیاهْ پیشْ می‌رَوَدْ  | beː ˈaːndˈɑzeː jˈeː hˈezɑr pˈɑiː kˈeː dˈar sˈafheː iː siˈɑh pˈiʃ mirˈavad
- 080 | کُرْسِتَنْ غَرْقْ دَرْ فِکْرْ اَسْتْ  | korsˈetan q1ˈarq1 dˈar fˈekr ˈast
+ 080 | کِرِسْتِنْ غَرْقْ دَرْ فِکْرْ اَسْتْ  | kerˈesten q1ˈarq1 dˈar fˈekr ˈast
  081 | دَرْ جَوابْ رَبیعْ می‌گویَدْ  | dˈar dʒˈavɑb rˈabiʔ miɡˈujad
  082 | نه چیزی نیسْتْ  | nˈa tʃˈizi nˈist
  083 | اَمّا هَنوزْ اینْ حَرْفْ را نَزَدِ  | ˈammˌɑ hˈanuz iːn hˈarf rɑ nazˈadeː
@@ -91,7 +91,7 @@
  090 | نِمی خواهَدْ رَبیعْ را مُعَذَّبْ کُنَدْ  | nˌemi xˈɑhad rˈabiʔ rɑ moʔˈazzab kˈonad
  091 | هَمِ مَرْدْها  | hˈameː mˈardhɑ
  092 | اَزْ اینْ چیزْها بَدِشانْ می‌آیَدْ  | az iːn tʃˈizhɑ badˈeʃɑn miˈɑjad
- 093 | وَ کُرْسِتَنْ نِمیخواهَدْ  | vˈa korsˈetan nˈemixˌɑhad
+ 093 | وَ کِرِسْتِنْ نِمیخواهَدْ  | vˈa kerˈesten nˈemixˌɑhad
  094 | اینْ کارْ را تَبْدیلْ بِ عادَتْ کُنَدْ  | iːn kˈɑr rɑ tˈabdil beː ˈɑdat kˈonad
  095 | اَزْ هَمِ مُهِمْتَرْ هیچْ رَبْطی بِ رَبیعْ نَدارَدْ  | az hˈameː mˈohemtˌar hˈitʃ rˈabti beː rˈabiʔ nˈadɑrˌad
  096 | مَرْبوطْ بِ مادَرَشْ اَسْتْ  | mˈarbut beː mɑdˈaraʃ ˈast
@@ -103,8 +103,8 @@
  102 | بِ نُدْرَتْ با آنْ آشْناسْتْ  | beː nˈodrat bɑ ɑn ˈɑʃnˈɑst
  103 | خانُمْ لیلانْدْ  | xˈɑnom lilˈɑnd
  104 | نِگَرانْ اَسْتْ کِ مَبادا رَبیعْ  | neɡˈarɑn ˈast kˈeː mabˈɑdˈɑ rˈabiʔ
- 105 | کُرْسِتَنْ را ناراحَتْ کُنَدْ  | korsˈetan rɑ nɑrˈɑhat kˈonad
- 106 | کُرْسِتَنْ با اِحْساسْ گُناهْ گِرْیِ می‌کُنَدْ اَزْ اینْ کِ  | korsˈetan bɑ ˈehsɑs ɡˈonɑːh ɡˈerjeː mikˈonad az iːn kˈeː
+ 105 | کِرِسْتِنْ را ناراحَتْ کُنَدْ  | kerˈesten rɑ nɑrˈɑhat kˈonad
+ 106 | کِرِسْتِنْ با اِحْساسْ گُناهْ گِرْیِ می‌کُنَدْ اَزْ اینْ کِ  | kerˈesten bɑ ˈehsɑs ɡˈonɑːh ɡˈerjeː mikˈonad az iːn kˈeː
  107 | چِ قَدْرْ مَعْشوقْ اَشْ  | tʃeː q1ˈadr mˈaʔʃuq1 ˈaʃ
  108 | باعِثْ خوْشْحالی او شُدِ اَسْتْ  | bˈɑʔes xoʃhˈɑli ˈuː ʃˈodeː ˈast
  109 | رَبیعْ او را دَرْ آغوشْ خوْدْ می‌گیرَدْ  | rˈabiʔ ˈuː rɑ dˈar ˈɑq1uːʃ xod miɡˈirad
@@ -116,24 +116,24 @@
  115 | اَمّا دُرُسْتْ  | ˈammˌɑ dˈorost
  116 | بَعْدْ اَزْ روسْتایِ کیلیکْ رَنْکی  | bˈaʔd az ruːstˈɑje kˈilik rˈanki
  117 | بَعْدْ اَزْ رَفْتَنْ ماَمورْ جَمْعْ آوَری بِلیطْ  | bˈaʔd az rˈaftan mˈamur dʒˈamʔ ˈɑvarˌi belˈit
- 118 | رو می‌کُنَدْ بِ کُرْسِتَنْ  | rˈu mikˈonad beː korsˈetan
+ 118 | رو می‌کُنَدْ بِ کِرِسْتِنْ  | rˈu mikˈonad beː kerˈesten
  119 | وَ بِدونْ مُقَدَّمِ  | vˈa bedˈuːn mˌoq1addˈameː
  120 | اَزْ او دَرْخواسْتْ اِزْدِواجْ می‌کُنَدْ  | az ˈuː dˈarxɑst ezdˈevɑdʒ mikˈonad
  121 | وَ اِضافِ می‌کُنَدْ کِ نه لُزومَاْ هَمینْ حالا  | vˈa ezˈɑfeː mikˈonad kˈeː nˈa lozˈuman hˈamin hˈɑlɑ
  122 | هَرْ زَمانْ کِ او فِکْرْ می‌کُنَدْ مُناسِبْ اَسْتْ  | har zamˈɑn kˈeː ˈuː fˈekr mikˈonad monˈɑseb ˈast
  123 | وَ نه لُزومَاْ با بوقْ وَ کَرْنا  | vˈa nˈa lozˈuman bɑ bˈuːq1 vˈa karnˈɑ
  124 | میتَوانَدْ یِکْ مَراسِمْ جَمْعْ وَ جورْ باشَدْ  | mitavˈɑnad jˈek marˈɑsem dʒˈamʔ vˈa dʒˈuːr bˈɑʃad
- 125 | فَقَطْ خوْدِشانْ وَ مادَرْ کُرْسِتَنْ  | fˈaq1at xodˌeʃɑn vˈa mˈɑdar korsˈetan
+ 125 | فَقَطْ خوْدِشانْ وَ مادَرْ کِرِسْتِنْ  | fˈaq1at xodˌeʃɑn vˈa mˈɑdar kerˈesten
  126 | وَ چَنْدْ نَفَرْ اَزْ دوسْتانْ  | vˈa tʃˈand nˈafar az dˈustɑn
  127 | اَلْبَتِّ می‌تَوانَدْ بُزُرْگ‌تَرْ هَمْ باشَدْ  | albˈatteː mitavˈɑnad bozˈorɡtar hˈam bˈɑʃad
  128 | اَگَرْ او اینْطوْرْ تَرْجیحْ بِدَهَدْ  | ˌaɡˈar ˈuː ˈintoːr tˈardʒih bedˈahad
  129 | مُهِمْ اینْ اَسْتْ کِ او بی قِیْدْ وَ شَرْطْ  | mˈohem iːn ˈast kˈeː ˈuː bi q1ˈejd vˈa ʃˈart
  130 | وَ بِدونْ هیچْ خواسْتِ ای  | vˈa bedˈuːn hˈitʃ xˈɑsteː ˈiː
- 131 | عاشِقْ کُرْسِتَنْ اَسْتْ  | ˈɑʃeq1 korsˈetan ˈast
+ 131 | عاشِقْ کِرِسْتِنْ اَسْتْ  | ˈɑʃeq1 kerˈesten ˈast
  132 | وَ بیشْ اَزْ هَرْ چیزی کِ تا بِ حالْ خواسْتِ  | vˈa bˈiʃ az har tʃˈizi kˈeː tɑː beː hˈɑl xˈɑsteː
  133 | می‌خواهَدْ تا زَمانی کِ زِنْدِ اَسْتْ  | mixˈɑhad tɑː zamˈɑni kˈeː zˈendeː ˈast
  134 | با او باشَدْ  | bɑ ˈuː bˈɑʃad
- 135 | کُرْسِتَنْ رویِشْ را بَرْمی گَرْدانْدْ  | korsˈetan rˈujeʃ rɑ bˈarmi ɡˈardɑnd
+ 135 | کِرِسْتِنْ رویِشْ را بَرْمی گَرْدانْدْ  | kerˈesten rˈujeʃ rɑ bˈarmi ɡˈardɑnd
  136 | وَ مُدَّتْ کوتاهی ساکِتْ می‌مانْدْ  | vˈa mˌoddˈat kuːtˈɑhi sˈɑket mimˈɑnd
  137 | او اِقْرارْ می‌کُنَدْ  | ˈuː ˈeq1rɑr mikˈonad
  138 | کِ دُرُسْتْ نِمیدانَدْ  | kˈeː dˈorost nˌemidˈɑnad
@@ -149,13 +149,13 @@
  148 | چِقَدْرْ رَبیعْ  | tʃˈeq1adr rˈabiʔ
  149 | مِهْرْبانْ وَ عاشِقْ وَ با دِلْ وَ جُراَتْ اَسْتْ  | mˈeːhrbɑn vˈa ˈɑʃeq1 vˈa bɑ dˈel vˈa dʒorʔˈat ˈast
  150 | کِ حالا چِنینْ موْضوعی را پیشْ کِشیدِ  | kˈeː hˈɑlɑ tʃˈenin mozˈuːi rɑ pˈiʃ keʃˈideː
- 151 | وَ با وُجودْ شَخْصیَتْ مَنْفی بافْ کُرْسِتَنْ  | vˈa bɑ vˈodʒuːd ʃaxsˈiːjat mˈanfi bˈɑf korsˈetan
+ 151 | وَ با وُجودْ شَخْصیَتْ مَنْفی بافْ کِرِسْتِنْ  | vˈa bɑ vˈodʒuːd ʃaxsˈiːjat mˈanfi bˈɑf kerˈesten
  152 | وَ عَقیدِ راسِخَشْ بِ اینْکِ  | vˈa aːq1ˈideː rˈɑsexˌaʃ beː ˈinkeː
  153 | بِ اینْ چیزْها اَهَمّیَتی نِمی‌دَهَدْ  | beː iːn tʃˈizhɑ ˌahammiːjˈati nˌemidˈahad
  154 | اَزْ آنْجایی کِ رَبیعْ واقِعَاْ میدانَدْ کِ چِ می‌خواهَدْ  | az ˈɑndʒˈɑiː kˈeː rˈabiʔ vɑq1ˈeʔan midˈɑnad kˈeː tʃeː mixˈɑhad
- 155 | وَ واقِعَاْ کُرْسِتَنْ را شِناخْتِ  | vˈa vɑq1ˈeʔan korsˈetan rɑ ʃenˈɑxteː
+ 155 | وَ واقِعَاْ کِرِسْتِنْ را شِناخْتِ  | vˈa vɑq1ˈeʔan kerˈesten rɑ ʃenˈɑxteː
  156 | وَ می‌دانَدْ چِ هَیولایی اَسْتْ  | vˈa midˈɑnad tʃeː hˌajulˈɑiː ˈast
- 157 | کُرْسِتَنْ دَلیلی نِمی بینَدْ  | korsˈetan dalˈili nˌemi bˈinad
+ 157 | کِرِسْتِنْ دَلیلی نِمی بینَدْ  | kerˈesten dalˈili nˌemi bˈinad
  158 | کِ با تَمامْ وُجودَشْ  | kˈeː bɑ tˈamɑm vodʒˈuːdaʃ
  159 | وَ دَرْ نَهایَتْ تَرْسْ تواَمْ با رِضایَتْ  | vˈa dˈar nahˈɑjat tˈars tˈoːʔam bɑ rezˈɑjat
  160 | نَگویَدْ  | nˈaɡujˌad
@@ -187,7 +187,7 @@
  186 | اِحْساساتَشْ اَسْتْ  | ˌehsɑsˈɑtaʃ ˈast
  187 | اِحْساساتی وافِرْ  | ˌehsɑsˈɑti vˈɑfer
  188 | اِحْساسْ می‌کُنَدْ هیچْگاهْ نِمیخواهَدْ  | ˈehsɑs mikˈonad hitʃɡˈɑh nˈemixˌɑhad
- 189 | کُرْسِتَنْ را اَزْ دَسْتْ بِدَهَدْ  | korsˈetan rɑ az dˈast bedˈahad
+ 189 | کِرِسْتِنْ را اَزْ دَسْتْ بِدَهَدْ  | kerˈesten rɑ az dˈast bedˈahad
  190 | بِ خاطِرْ پیشانی بُلَنْدَشْ  | beː xˈɑter piʃˈɑni bˈolandˌaʃ
  191 | وَ بَرآمَدِگی لَبْ بالایی بَرْ رویِ لَبِ پایینی  | vˈa barˌɑmadˈeɡi lˈab bˈɑlɑˌiː bar rˈuje lˈabeː pˈɑjinˌi
  192 | اِحْساسْ می‌کُنَدْ  | ˈehsɑs mikˈonad

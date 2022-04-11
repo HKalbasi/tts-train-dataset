@@ -341,7 +341,7 @@ const doFile = async (fnum) => {
     const parts = line.split('|').map((x) => x.trim());
     if (parts.length < 2) continue;
     const id = parts[0];
-    const text = parts[3];
+    const text = parts[3].replaceAll('کرستن', 'کِرِسْتِن');
     const ip = await ipa(text);
     const diac = await diacWithIpa(text, ip);
     write(` ${id} | ${diac} | ${ip}`);
