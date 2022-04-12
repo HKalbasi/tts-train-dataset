@@ -17,7 +17,6 @@ const hazmProcess = await Deno.run({
 const reader = new TextProtoReader(BufReader.create(hazmProcess.stdout));
 
 const hazm = async (text) => {
-  console.log(text);
   await hazmProcess.stdin.write(new TextEncoder().encode(`${text}\n`));
   return reader.readLine();
 };
@@ -107,7 +106,7 @@ const diacWithIpa = async (text, ipa) => {
     .replaceAll('اً', 'ن').replaceAll('ّ', '')
     .replaceAll('غم‌انگیز', 'غَمَنْگیزْ')
     .replaceAll('هیجان‌انگیز', 'هَیَجانَنگیزْ')
-    .replaceAll('بهمون', 'بِهِمون').replaceAll('وگرنه', 'وگرنَ').replaceAll(' الهه', ' عه لاهه');
+    .replaceAll('وگرنه', 'وگرنَ').replaceAll(' الهه', ' عه لاهه');
   ipa = ipa.replaceAll('\n', ' ') + ' ';
   text += ' ';
   let tp = 0;
@@ -188,7 +187,8 @@ const diacWithIpa = async (text, ipa) => {
       ip += 4 + (ipa[ip + 4] === ic);
       continue;
     }
-    if (text.slice(tp).startsWith('چهار') && (ipa.slice(ip).startsWith('tʃˈɑhɑr') || ipa.slice(ip).startsWith('tʃˌɑhɑr'))) {
+    if (text.slice(tp).startsWith('چهار') &&
+      (ipa.slice(ip).startsWith('tʃˈɑhɑr') || ipa.slice(ip).startsWith('tʃɑhˈɑr') || ipa.slice(ip).startsWith('tʃˌɑhɑr'))) {
       goText();
       result += "ا";
       goText();
@@ -338,6 +338,11 @@ const diacWithIpa = async (text, ipa) => {
       tp += 1;
       continue;
     }
+    if (vowelImp['e'] === tc && ipa.slice(ip).startsWith('ie') && result.endsWith('ی')) {
+      goText();
+      ip += 2;
+      continue;
+    }
     if (ic === ' ') {
       ip += 1;
       continue;
@@ -358,7 +363,8 @@ const doFile = async (fnum) => {
     const parts = line.split('|').map((x) => x.trim());
     if (parts.length < 2) continue;
     const id = parts[0];
-    const text = (await hazm(parts[3])).replaceAll('کرستن', 'کِرِسْتِن');
+    const text = (await hazm(parts[3]))
+      .replaceAll('بهمون', 'بِهِمون').replaceAll('کرستن', 'کِرِسْتِن');
     const ip = await ipa(text);
     const diac = await diacWithIpa(text, ip);
     write(` ${id} | ${diac} | ${ip}`);

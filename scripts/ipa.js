@@ -35,6 +35,10 @@ export const ipa = async (text) => {
     .replaceAll('mˌooʔaddˈabi', 'mˌoʔaddˈabi')
     .replaceAll('ʃˌodʒɑɑˈate', 'ʃˌodʒɑʔˈate')
     .replaceAll('ee', 'e')
+    .replaceAll('jˌeːe', 'je')
+    .replaceAll('jeˌe', 'je')
+    .replaceAll('tˈebq1eːˌe', 'tˈebq1e')
+    .replaceAll('mozˈuːe', 'mozˈuʔe')
     .replaceAll('nahvˈejejˈe', 'nahvˈejˈe').replaceAll('\n', ' ');
   return r;
 };

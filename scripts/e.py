@@ -2,7 +2,10 @@ from hazm import *
 
 def f(a, b):
     if b[-1] == 'e':
-        a += 'ِ'
+        if a[-1] != 'ِ':
+            if a[-1] == 'ه':
+                a += '‌ی'
+            a += 'ِ'
     return a
 
 tagger = POSTagger(model='scripts/resources-0.5/postagger.model')
