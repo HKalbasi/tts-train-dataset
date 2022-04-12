@@ -1,9 +1,25 @@
 import { ipa, ipaIgnored } from "./ipa.js";
+import { TextProtoReader } from "https://deno.land/std/textproto/mod.ts";
+import { BufReader } from "https://deno.land/std/io/mod.ts";
 
 const clipboardWriteText = async (text) => {
   const command = await Deno.run({
     cmd: ["bash", "-c", `echo "${text}" | xclip -sel clip`],
   });
+};
+
+const hazmProcess = await Deno.run({
+  cmd: ['python3', 'scripts/e.py'],
+  stdout: 'piped',
+  stdin: 'piped',
+});
+
+const reader = new TextProtoReader(BufReader.create(hazmProcess.stdout));
+
+const hazm = async (text) => {
+  console.log(text);
+  await hazmProcess.stdin.write(new TextEncoder().encode(`${text}\n`));
+  return reader.readLine();
 };
 
 // wrongs: نه، خواستگاری
@@ -80,6 +96,7 @@ const textIgnored = {
   '"': true,
   ',': true,
   '!': true,
+  '_': true,
   '‌': true,
 };
 
@@ -341,7 +358,7 @@ const doFile = async (fnum) => {
     const parts = line.split('|').map((x) => x.trim());
     if (parts.length < 2) continue;
     const id = parts[0];
-    const text = parts[3].replaceAll('کرستن', 'کِرِسْتِن');
+    const text = (await hazm(parts[3])).replaceAll('کرستن', 'کِرِسْتِن');
     const ip = await ipa(text);
     const diac = await diacWithIpa(text, ip);
     write(` ${id} | ${diac} | ${ip}`);

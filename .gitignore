@@ -1,3 +1,4 @@
 wav
 mp3
-
+resources*
+__pycache__
