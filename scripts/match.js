@@ -23,6 +23,8 @@ const lsp = (s1, s2) => {
 
 
 const match = (s1, s2) => {
+    s1 = s1.replaceAll('ِ', '').replaceAll('َ', '').replaceAll('ُ', '');
+    s2 = s2.replaceAll('ِ', '').replaceAll('َ', '').replaceAll('ُ', '');
     if (s1 === s2) {
         return true;
     }
@@ -49,7 +51,7 @@ const bads = ['،', '.', '»', '«', '(', ')', '؛', ':'];
 const isSpacy = (c) => c === ' ' || c === '\n' || c === '\t' || c === '\r';
 
 const doFile = async (fnum) => {
-    const textPath = `texts/${fnum}.txt`;
+    const textPath = `hazmed/${fnum}.txt`;
     if (!await exists(textPath)) {
         console.log(`${textPath} not found`);
         return;

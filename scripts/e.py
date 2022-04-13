@@ -9,6 +9,10 @@ def f(a, b):
     return a
 
 tagger = POSTagger(model='scripts/resources-0.5/postagger.model')
+def job(l):
+    x = [f(a, b) for a, b in tagger.tag(word_tokenize(l))]
+    return ' '.join(x)
+
 while True:
     l = input()
     x = [f(a, b) for a, b in tagger.tag(word_tokenize(l))]
