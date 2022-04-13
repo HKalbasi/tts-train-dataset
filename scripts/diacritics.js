@@ -376,7 +376,9 @@ const doFile = async (fnum) => {
     const text = (await hazm(parts[3]))
       .replaceAll('؟', '')
       .replaceAll('!', '')
-      .replaceAll('بهمون', 'بِهِمون').replaceAll('کرستن', 'کِرِسْتِن');
+      .replaceAll('بهمون', 'بِهِمون')
+      .replaceAll('ادینبرو', 'عِدینْبِرُ')
+      .replaceAll('کرستن', 'کِرِسْتِن');
     const ip = await ipa(text);
     const diac = await diacWithIpa(text, ip);
     write(` ${id} | ${diac} | ${ip}`);
