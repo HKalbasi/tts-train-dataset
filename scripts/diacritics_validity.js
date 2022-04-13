@@ -4,6 +4,9 @@ const clean = (x) => {
   for (const a of Object.keys(ipaIgnored)) {
     x = x.replaceAll(a, '');
   }
+  return x.replaceAll('j', '').replaceAll('ʔ', '').replaceAll('u', '').replaceAll('i', '')
+    .replaceAll('ɑ', '').replaceAll('a', '').replaceAll('v', '').replaceAll('e', '')
+    .replaceAll('o', '').replace('bɑlɑaxar', 'blaxar').replaceAll('  ', ' ').trim();
 };
 
 const doFile = async (fnum) => {
@@ -12,11 +15,17 @@ const doFile = async (fnum) => {
     const parts = line.split('|').map((x) => x.trim());
     if (parts.length < 2) {
       continue;
-    } 
-    const x = await ipa(parts[1].replaceAll('صَفْحه', 'صفحه'));
-    const y = parts[2];
-    if (clean(x) !== clean(y)) {
-      throw new Error(`mismatched:\n${x}\n${y}`);
+    }
+    const x = clean(await ipa(parts[1].replaceAll(/.ّ/g, (c) => `${c[0]}${c[0]}`).replaceAll('صَفْحه', 'صفحه')));
+    const y = clean(parts[2]);
+    if (x !== y) {
+      console.log(x.length, y.length);
+      for (let i = 0; i < x.length; i += 1) {
+        if (x[i] !== y[i]) {
+          console.log(i);
+        }
+      }
+      throw new Error(`mismatched:\ncurrent:  ${x}\nexpected: ${y}\ntext: ${parts[1]}`);
     }
   }
 };

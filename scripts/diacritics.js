@@ -1,6 +1,4 @@
 import { ipa, ipaIgnored } from "./ipa.js";
-import { TextProtoReader } from "https://deno.land/std/textproto/mod.ts";
-import { BufReader } from "https://deno.land/std/io/mod.ts";
 
 const clipboardWriteText = async (text) => {
   const command = await Deno.run({
@@ -20,7 +18,6 @@ const nonVowel = {
   'أ': 'ʔ',
   'ؤ': 'ʔ',
   'ء': 'ʔ',
-  'ا': 'n',
   'ب': 'b',
   'پ': 'p',
   'ت': 't',
@@ -165,7 +162,8 @@ const diacWithIpa = async (text, ipa) => {
       continue;
     }
     if (text.slice(tp).startsWith('ی') && ic === 'ɑ') {
-      goText();
+      result += 'ا';
+      tp += 1;
       ip += 1;
       continue;
     }
@@ -180,6 +178,12 @@ const diacWithIpa = async (text, ipa) => {
     if (text[tp + 1] === tc && nonVowel[tc] === ic && ipa[ip + 1] === ic && (ipa[ip + 3] === ic || ipaIgnored[ipa[ip + 2]] && ipa[ip + 4] === ic)) {
       goText();
       result += 'ّ';
+      if (vowelImp[ipa[ip + 2]]) {
+        result += vowelImp[ipa[ip + 2]];
+      }
+      if (vowelImp[ipa[ip + 3]]) {
+        result += vowelImp[ipa[ip + 3]];
+      }
       goText();
       state = 'nonVowel';
       ip += 4 + (ipa[ip + 4] === ic);
@@ -196,28 +200,27 @@ const diacWithIpa = async (text, ipa) => {
       state = 'nonVowel';
       continue;
     }
-    if (text.slice(tp).startsWith('و') && ipa.slice(ip).startsWith('ovv')) {
-      goText();
-      result += 'ّ';
-      ip += 3;
-      continue;
-    }
+    //if (text.slice(tp).startsWith('و') && ipa.slice(ip).startsWith('ovv')) {
+    //  goText();
+    //  result += 'ّ';
+    //  ip += 3;
+    //  continue;
+    //}
     if (text.slice(tp).startsWith('و') && ipa.slice(ip).startsWith('ov')) {
-      goText();
-      ip += 2;
+      result += 'ُ';
+      state = 'vowel';
+      ip += 1;
       continue;
     }
     if (text.slice(tp).startsWith('ه‌ه') && ipa.slice(ip).startsWith('eh')) {
-      goText();
-      goText();
-      goText();
+      result += 'ِ‌ه';
+      tp += 3;
       ip += 2;
       continue;
     }
     if (text.slice(tp).startsWith('ه‌ه') && ipa.slice(ip).startsWith('eːh')) {
-      goText();
-      goText();
-      goText();
+      result += 'ِ‌ه';
+      tp += 3;
       ip += 3;
       continue;
     }
@@ -249,6 +252,13 @@ const diacWithIpa = async (text, ipa) => {
       ip += 3;
       continue;
     }
+    if (ic === 'n' && tc === 'ا') {
+      result += 'ن';
+      state = 'nonVowel';
+      ip += 1;
+      tp += 1;
+      continue;
+    }
     if (ipa.slice(ip).startsWith(nonVowel[tc])) {
       if (state === 'nonVowel') {
         result += 'ْ';
@@ -276,7 +286,7 @@ const diacWithIpa = async (text, ipa) => {
       continue;
     }
     if (vowelExp[text[tp + 1]] === ic && tc === 'و') {
-      goText();
+      tp += 1;
       continue;
     }
     if (isAyn(tc) && vowelExp[text[tp + 1]] === ic) {
@@ -301,7 +311,9 @@ const diacWithIpa = async (text, ipa) => {
       continue;
     }
     if (ic === 'o' && tc === 'و') {
-      goText();
+      result += 'ُ';
+      state = 'vowel';
+      tp += 1;
       ip += 1;
       continue;
     }
