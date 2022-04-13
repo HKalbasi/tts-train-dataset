@@ -8,17 +8,8 @@ const clipboardWriteText = async (text) => {
   });
 };
 
-const hazmProcess = await Deno.run({
-  cmd: ['python3', 'scripts/e.py'],
-  stdout: 'piped',
-  stdin: 'piped',
-});
-
-const reader = new TextProtoReader(BufReader.create(hazmProcess.stdout));
-
 const hazm = async (text) => {
-  await hazmProcess.stdin.write(new TextEncoder().encode(`${text}\n`));
-  return reader.readLine();
+  return text;
 };
 
 // wrongs: نه، خواستگاری
@@ -85,6 +76,7 @@ const textIgnored = {
   '؛': true,
   ':': true,
   '؟': true,
+  '…': true,
   '،': true,
   ' ': true,
   '»': true,
@@ -158,6 +150,12 @@ const diacWithIpa = async (text, ipa) => {
       while (ipa[ip] === ' ') {
         ip += 1;
       }
+      continue;
+    }
+    if (text.slice(tp).startsWith('ه‌اند') && ipa.slice(ip).startsWith('hˈand')) {
+      result += 'ه‌اَند';
+      tp += 5;
+      ip += 5;
       continue;
     }
     if (text.slice(tp).startsWith('یی') && ic === 'i') {
@@ -364,6 +362,8 @@ const doFile = async (fnum) => {
     if (parts.length < 2) continue;
     const id = parts[0];
     const text = (await hazm(parts[3]))
+      .replaceAll('؟', '')
+      .replaceAll('!', '')
       .replaceAll('بهمون', 'بِهِمون').replaceAll('کرستن', 'کِرِسْتِن');
     const ip = await ipa(text);
     const diac = await diacWithIpa(text, ip);

@@ -68,6 +68,7 @@ const doFile = async (fnum) => {
         .replaceAll('؛', '')
         .replaceAll(':', '')
         .replaceAll(nimFasele, ' ')
+        .replaceAll('_', ' ')
         .split(/\s+/);
     const { result: preResult } = json;
     const result = [];
@@ -218,7 +219,7 @@ const doFile = async (fnum) => {
                     continue;
                 }
             }
-            if (c === text[tPointer] || c === ' ' && text[tPointer] === nimFasele) {
+            if (c === text[tPointer] || c === ' ' && (text[tPointer] === nimFasele || text[tPointer] === '_')) {
                 insert();
                 continue;
             }
