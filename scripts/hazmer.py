@@ -4,7 +4,7 @@ from pathlib import Path
 def f(a, b):
     if b[-1] == 'e':
         if a[-1] != 'ِ':
-            if a[-1] == 'ه':
+            if a[-1] == 'ه' and a[-2] != 'ا':
                 a += '‌ی'
             a += 'ِ'
     return a
